@@ -56,31 +56,31 @@ public class MovementService {
         int newStartY = gameObject.getStartY();
         int step = 10;
         if (upPressed) {
+            Application.getRenderService().toTheTop(gameObject);
             newStartY -= step;
             if (!checkUpCollision(newStartX, newStartY)) {
                 gameObject.setStartY(newStartY);
-                Application.getRenderService().toTheTop(gameObject);
             }
         }
         if (downPressed) {
+            Application.getRenderService().toTheDown(gameObject);
             newStartY += step;
             if (!checkDownCollision(newStartX, newStartY)) {
                 gameObject.setStartY(newStartY);
-                Application.getRenderService().toTheDown(gameObject);
             }
         }
         if (leftPressed) {
+            Application.getRenderService().toTheLeft(gameObject);
             newStartX -= step;
             if (!checkLeftCollision(newStartX, newStartY)) {
                 gameObject.setStartX(newStartX);
-                Application.getRenderService().toTheLeft(gameObject);
             }
         }
         if (rightPressed) {
+            Application.getRenderService().toTheRight(gameObject);
             newStartX += step;
             if (!checkRightCollision(newStartX, newStartY)) {
                 gameObject.setStartX(newStartX);
-                Application.getRenderService().toTheRight(gameObject);
             }
         }
         return gameObject;

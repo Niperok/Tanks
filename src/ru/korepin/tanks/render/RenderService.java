@@ -6,11 +6,12 @@ import ru.korepin.tanks.gameObjects.GameObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.nio.file.Path;
 
 public class RenderService {
     public Screen init(JFrame jFrame) {
-        Parser.parseSprites("/home/asp-ksv/IdeaProjects/Tanks/src/ru/korepin/tanks/img");
-        Parser.parseObjects("/home/asp-ksv/IdeaProjects/Tanks/src/ru/korepin/tanks/img/objects");
+        Parser.parseSprites(System.getProperty("user.dir") + Path.of("/src/ru/korepin/tanks/img"));
+        Parser.parseObjects(System.getProperty("user.dir") + Path.of("/src/ru/korepin/tanks/img/objects"));
         jFrame.setMinimumSize(new Dimension(1040, 1080));
         jFrame.setLocation(0, 0);
         jFrame.setVisible(true);
@@ -75,6 +76,7 @@ public class RenderService {
     }
 
     private int[][] getObjectDefaultImage(GameObject gameObject) {
+        //TODO должен возвращать оригинальное изображение объекта
         return Block.OBJECTS.get("Tank0000.png");
     }
 }
